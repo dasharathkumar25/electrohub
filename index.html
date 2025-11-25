@@ -1,0 +1,1150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TechHub - Your Electronics Store</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Custom Tailwind Configuration -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        inter: ['Inter', 'sans-serif'],
+                    },
+                    animation: {
+                        'marquee-slow': 'marquee 25s linear infinite',
+                    },
+                    keyframes: {
+                        marquee: {
+                            '0%': { transform: 'translateX(100%)' },
+                            '100%': { transform: 'translateX(-100%)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        /* Simple scrollbar for category carousel */
+        .category-scroll::-webkit-scrollbar {
+            height: 4px;
+        }
+        .category-scroll::-webkit-scrollbar-thumb {
+            background: #cbd5e1;
+            border-radius: 20px;
+        }
+        /* Ensure dropdowns appear on top */
+        .nav-item .dropdown {
+            visibility: hidden;
+            opacity: 0;
+            transition: all 0.3s ease;
+            z-index: 50;
+        }
+        .nav-item:hover .dropdown,
+        .nav-item:focus-within .dropdown {
+            visibility: visible;
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body class="font-inter bg-gray-100">
+
+    <!-- 1. Top Announcement Bar (from video 0:00) -->
+    <div class="bg-gray-900 text-white text-sm text-center p-2 flex justify-center items-center gap-4">
+        <p>
+            <span class="font-bold">Limited Time Offer:</span> Get the new Smartwatch X for ₹14,999
+        </p>
+        <a href="#" class="bg-indigo-600 hover:bg-indigo-700 text-white py-1 px-3 rounded-md text-xs font-medium transition-colors">
+            Shop Now
+        </a>
+    </div>
+
+    <!-- 2. Main Header (from video 0:01) -->
+    <header class="bg-black text-white sticky top-0 z-40 shadow-md">
+        <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+            <!-- Left: Social Icons (hidden on mobile) -->
+            <div class="hidden md:flex items-center gap-4">
+                <a href="#" class="hover:text-indigo-400" aria-label="Facebook">
+                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M14 13.5H16.5L17.5 9.5H14V7.5C14 6.47 14 5.5 16 5.5H17.5V2.14C17.174 2.097 15.943 2 14.643 2C11.928 2 10 3.657 10 6.7V9.5H7V13.5H10V22H14V13.5Z"></path></svg>
+                </a>
+                <a href="#" class="hover:text-indigo-400" aria-label="Pinterest">
+                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2C6.477 2 2 6.477 2 12C2 16.62 5.03 20.443 9.094 21.652V14.86H6.55V12H9.094V9.668C9.094 7.16 10.655 5.69 12.9 5.69C13.98 5.69 15.106 5.875 15.106 5.875V8.163H13.88C12.632 8.163 12.33 8.98 12.33 9.92V12H15L14.47 14.86H12.33V21.75C16.92 21.05 20.255 16.92 20.255 12C20.255 6.477 15.778 2 12 2Z"></path></svg>
+                </a>
+                <a href="#" class="hover:text-indigo-400" aria-label="Instagram">
+                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.07 1.646.07 4.85s-.012 3.584-.07 4.85c-.148 3.227-1.669 4.771-4.919 4.919-1.266.058-1.646.07-4.85.07s-3.584-.012-4.85-.07c-3.252-.148-4.771-1.691-4.919-4.919-.058-1.265-.07-1.646-.07-4.85s.012-3.584.07-4.85c.148-3.227 1.669 4.771 4.919-4.919C8.416 2.175 8.796 2.163 12 2.163m0-2.163C8.74 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.74 0 12s.014 3.667.072 4.947c.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.74 24 12 24s3.667-.014 4.947-.072c4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.687.073-4.947s-.014-3.667-.072-4.947C21.727 2.69 19.302.273 14.947.073 13.667.014 13.26 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.88 1.44 1.44 0 0 0 0-2.88z"></path></svg>
+                </a>
+            </div>
+
+            <!-- Mobile: Hamburger Menu Button -->
+            <div class="md:hidden">
+                <button id="mobile-menu-btn" class="text-white" aria-label="Open menu">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+                </button>
+            </div>
+
+            <!-- Center: Logo -->
+            <div class="absolute left-1/2 -translate-x-1/2">
+                <a href="#" class="text-2xl md:text-3xl font-bold tracking-wider">
+                    TechHub
+                </a>
+            </div>
+
+            <!-- Right: Icons -->
+            <div class="flex items-center gap-3 md:gap-5">
+                <button id="search-btn" class="hover:text-indigo-400" aria-label="Search">
+                    <svg class="w-5 h-5 md:w-6 md:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
+                </button>
+                <!-- <a href="#" class="hover:text-indigo-400" aria-label="My Account"> ... removed ... </a> -->
+                <!-- <a href="#" class="hover:text-indigo-400" aria-label="Wishlist"> ... removed ... </a> -->
+                <button id="cart-btn" class="relative hover:text-indigo-400" aria-label="Cart">
+                    <svg class="w-5 h-5 md:w-6 md:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"></path></svg>
+                    <span id="cart-count" class="absolute -top-2 -right-2 bg-indigo-600 text-white text-xs w-4 h-4 rounded-full flex items-center justify-center">0</span>
+                </button>
+            </div>
+        </div>
+
+        <!-- 3. Navigation Bar (from video 0:02) -->
+        <nav id="main-nav" class="hidden md:flex bg-black text-white border-t border-gray-700">
+            <ul class="container mx-auto px-4 flex justify-center items-center gap-6">
+                <li><a href="#" class="font-medium py-3 inline-block border-b-2 border-indigo-500 text-indigo-400">Home</a></li>
+                
+                <!-- Computers Dropdown -->
+                <li class="nav-item group relative">
+                    <a href="#" class="font-medium py-3 inline-block hover:text-indigo-400">Computers</a>
+                    <div class="dropdown absolute -left-20 top-full bg-white text-black shadow-lg rounded-md p-6 w-max invisible group-hover:visible group-focus-within:visible opacity-0 group-hover:opacity-100 transition-all duration-300">
+                        <div class="grid grid-cols-3 gap-x-12">
+                            <div>
+                                <h4 class="font-bold text-gray-900 mb-2">Laptops</h4>
+                                <ul class="space-y-1">
+                                    <li><a href="#" class="hover:text-indigo-600">Ultrabooks</a></li>
+                                    <li><a href="#" class="hover:text-indigo-600">Gaming Laptops</a></li>
+                                    <li><a href="#" class="hover:text-indigo-600">2-in-1 Laptops</a></li>
+                                </ul>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-gray-900 mb-2">Desktops</h4>
+                                <ul class="space-y-1">
+                                    <li><a href="#" class="hover:text-indigo-600">All-in-Ones</a></li>
+                                    <li><a href="#" class="hover:text-indigo-600">Gaming Towers</a></li>
+                                    <li><a href="#" class="hover:text-indigo-600">Mini PCs</a></li>
+                                </ul>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-gray-900 mb-2">Peripherals</h4>
+                                <ul class="space-y-1">
+                                    <li><a href="#" class="hover:text-indigo-600">Monitors</a></li>
+                                    <li><a href="#" class="hover:text-indigo-600">Keyboards</a></li>
+                                    <li><a href="#" class="hover:text-indigo-600">Mice</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+
+                <!-- Mobiles Dropdown -->
+                <li class="nav-item group relative">
+                    <a href="#" class="font-medium py-3 inline-block hover:text-indigo-400">Mobiles</a>
+                    <div class="dropdown absolute -left-10 top-full bg-white text-black shadow-lg rounded-md p-6 w-max invisible group-hover:visible group-focus-within:visible opacity-0 group-hover:opacity-100 transition-all duration-300">
+                        <div class="grid grid-cols-2 gap-x-12">
+                            <div>
+                                <h4 class="font-bold text-gray-900 mb-2">Smartphones</h4>
+                                <ul class="space-y-1">
+                                    <li><a href="#" class="hover:text-indigo-600">iOS</a></li>
+                                    <li><a href="#" class="hover:text-indigo-600">Android</a></li>
+                                    <li><a href="#" class="hover:text-indigo-600">Foldable</a></li>
+                                </ul>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-gray-900 mb-2">Mobile Accessories</h4>
+                                <ul class="space-y-1">
+                                    <li><a href="#" class="hover:text-indigo-600">Cases & Covers</a></li>
+                                    <li><a href="#" class="hover:text-indigo-600">Chargers & Cables</a></li>
+                                    <li><a href="#" class="hover:text-indigo-600">Power Banks</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+
+                <!-- Audio Dropdown -->
+                <li class="nav-item group relative">
+                    <a href="#" class="font-medium py-3 inline-block hover:text-indigo-400">Audio</a>
+                    <div class="dropdown absolute -left-10 top-full bg-white text-black shadow-lg rounded-md p-6 w-max invisible group-hover:visible group-focus-within:visible opacity-0 group-hover:opacity-100 transition-all duration-300">
+                        <ul class="space-y-1">
+                            <li><a href="#" class="hover:text-indigo-600">Headphones</a></li>
+                            <li><a href="#" class="hover:text-indigo-600">Earbuds</a></li>
+                            <li><a href="#" class="hover:text-indigo-600">Bluetooth Speakers</a></li>
+                            <li><a href="#" class="hover:text-indigo-600">Soundbars</a></li>
+                        </ul>
+                    </div>
+                </li>
+                
+                <li><a href="#" class="font-medium py-3 inline-block hover:text-indigo-400">Cameras</a></li>
+                <li><a href="#" class="font-medium py-3 inline-block hover:text-indigo-400">Gaming</a></li>
+                <li><a href="#" class="font-medium py-3 inline-block hover:text-indigo-400">Accessories</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Search Overlay -->
+    <div id="search-overlay" class="fixed inset-0 bg-black bg-opacity-70 z-50 p-4 hidden items-start justify-center">
+        <div class="relative w-full max-w-lg mt-16">
+            <input id="search-input" type="text" placeholder="Search for products..." class="w-full p-4 pr-12 rounded-lg text-lg border-none outline-none">
+            <button id="close-search-btn" class_="absolute top-1/2 right-4 -translate-y-1/2 text-gray-500 hover:text-gray-900" aria-label="Close search">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+            </button>
+        </div>
+    </div>
+
+    <!-- 3b. Mobile Navigation Menu (Hidden by default) -->
+    <div id="mobile-menu-items" class="fixed top-0 left-0 w-full h-full bg-gray-900 text-white z-50 p-6 transform -translate-x-full transition-transform duration-300 ease-in-out md:hidden">
+        <div class="flex justify-between items-center mb-6">
+            <h2 class="text-2xl font-bold">TechHub</h2>
+            <button id="close-mobile-menu" class="text-white" aria-label="Close menu">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+            </button>
+        </div>
+        <nav>
+            <ul class="space-y-4">
+                <li><a href="#" class="text-lg font-medium">Home</a></li>
+                
+                <!-- Mobile Dropdown: Computers -->
+                <li>
+                    <button class="w-full flex justify-between items-center text-lg font-medium mobile-dropdown-toggle">
+                        <span>Computers</span>
+                        <svg class="w-5 h-5 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </button>
+                    <ul class="mobile-dropdown-content hidden pl-4 mt-2 space-y-2 text-gray-300">
+                        <li><a href="#">Laptops</a></li>
+                        <li><a href="#">Desktops</a></li>
+                        <li><a href="#">Peripherals</a></li>
+                    </ul>
+                </li>
+                
+                <!-- Mobile Dropdown: Mobiles -->
+                <li>
+                    <button class="w-full flex justify-between items-center text-lg font-medium mobile-dropdown-toggle">
+                        <span>Mobiles</span>
+                        <svg class="w-5 h-5 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </button>
+                    <ul class="mobile-dropdown-content hidden pl-4 mt-2 space-y-2 text-gray-300">
+                        <li><a href="#">Smartphones</a></li>
+                        <li><a href="#">Mobile Accessories</a></li>
+                    </ul>
+                </li>
+                
+                <!-- Mobile Dropdown: Audio -->
+                <li>
+                    <button class="w-full flex justify-between items-center text-lg font-medium mobile-dropdown-toggle">
+                        <span>Audio</span>
+                        <svg class="w-5 h-5 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </button>
+                    <ul class="mobile-dropdown-content hidden pl-4 mt-2 space-y-2 text-gray-300">
+                        <li><a href="#">Headphones</a></li>
+                        <li><a href="#">Earbuds</a></li>
+                        <li><a href="#">Speakers</a></li>
+                    </ul>
+                </li>
+
+                <li><a href="#" class="text-lg font-medium">Cameras</a></li>
+                <li><a href="#" class="text-lg font-medium">Gaming</a></li>
+                <li><a href="#" class="text-lg font-medium">Accessories</a></li>
+            </ul>
+        </nav>
+    </div>
+
+
+    <!-- 4. Ticker/Marquee (from video 0:11) -->
+    <div class="bg-gray-100 border-b border-gray-200 overflow-hidden">
+        <div class="container mx-auto px-4 py-2">
+            <div class="whitespace-nowrap animate-marquee-slow">
+                <span class="mx-8 text-sm font-medium text-gray-700">Welcome to TechHub</span>
+                <span class="mx-8 text-sm font-medium text-gray-700">Next-Gen Tech, Today</span>
+                <span class="mx-8 text-sm font-medium text-gray-700">Explore Our Gadgets</span>
+                <span class="mx-8 text-sm font-medium text-gray-700">50K+ Happy Customers!</span>
+                <!-- Duplicate for seamless scroll -->
+                <span class="mx-8 text-sm font-medium text-gray-700">Welcome to TechHub</span>
+                <span class="mx-8 text-sm font-medium text-gray-700">Next-Gen Tech, Today</span>
+                <span class="mx-8 text-sm font-medium text-gray-700">Explore Our Gadgets</span>
+                <span class="mx-8 text-sm font-medium text-gray-700">50K+ Happy Customers!</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Content Area -->
+    <main>
+        <!-- 5. Hero Section (from video 0:11) -->
+        <section class="relative h-[60vh] md:h-[80vh] w-full overflow-hidden">
+            <!-- Slides -->
+            <div class="hero-slide absolute inset-0 w-full h-full transition-opacity duration-1000 ease-in-out opacity-100">
+                <img src="https://placehold.co/1600x900/000000/FFFFFF?text=Latest+Laptops" alt="Latest Laptops" class="w-full h-full object-cover">
+                <div class="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center md:justify-start">
+                    <div class="text-white text-center md:text-left p-8 md:p-20 max-w-lg">
+                        <h1 class="text-4xl md:text-6xl font-bold mb-4">Future-Proof Your Life</h1>
+                        <p class="text-lg md:text-xl mb-8">Discover our latest collection of cutting-edge electronics.</p>
+                        <a href="#" class="bg-indigo-600 hover:bg-indigo-700 text-white py-3 px-6 rounded-md text-lg font-medium transition-colors">
+                            Shop Now
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="hero-slide absolute inset-0 w-full h-full transition-opacity duration-1000 ease-in-out opacity-0 hidden">
+                <img src="https://placehold.co/1600x900/333333/FFFFFF?text=New+Smartphones" alt="New Smartphones" class="w-full h-full object-cover">
+                <div class="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center md:justify-start">
+                    <div class="text-white text-center md:text-left p-8 md:p-20 max-w-lg">
+                        <h1 class="text-4xl md:text-6xl font-bold mb-4">Connect Your World</h1>
+                        <p class="text-lg md:text-xl mb-8">All-new smartphones with AI features are here.</p>
+                        <a href="#" class="bg-indigo-600 hover:bg-indigo-700 text-white py-3 px-6 rounded-md text-lg font-medium transition-colors">
+                            Explore Mobiles
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 6. Category Carousel/Grid (from video 0:14) -->
+        <section class="py-12 md:py-16 bg-white">
+            <div class="container mx-auto px-4 relative">
+                <h2 class="text-2xl md:text-3xl font-bold text-center mb-8">Shop By Category</h2>
+                <div class="relative">
+                    <div id="category-container" class="category-scroll flex gap-4 md:gap-6 overflow-x-auto pb-4 scroll-smooth">
+                        <!-- Category Item -->
+                        <a href="#" class="flex-shrink-0 w-32 md:w-48 text-center group">
+                            <div class="rounded-lg overflow-hidden mb-2 shadow-lg transform group-hover:scale-105 transition-transform">
+                                <img src="https://placehold.co/300x300/F3F4F6/333333?text=Laptops" alt="Laptops" class="w-full h-32 md:h-48 object-cover">
+                            </div>
+                            <h3 class="font-semibold text-gray-800">LAPTOPS</h3>
+                        </a>
+                        <!-- Category Item -->
+                        <a href="#" class="flex-shrink-0 w-32 md:w-48 text-center group">
+                            <div class="rounded-lg overflow-hidden mb-2 shadow-lg transform group-hover:scale-105 transition-transform">
+                                <img src="https://placehold.co/300x300/F3F4F6/333333?text=Phones" alt="Phones" class="w-full h-32 md:h-48 object-cover">
+                            </div>
+                            <h3 class="font-semibold text-gray-800">PHONES</h3>
+                        </a>
+                        <!-- Category Item -->
+                        <a href="#" class="flex-shrink-0 w-32 md:w-48 text-center group">
+                            <div class="rounded-lg overflow-hidden mb-2 shadow-lg transform group-hover:scale-105 transition-transform">
+                                <img src="https://placehold.co/300x300/F3F4F6/333333?text=Headphones" alt="Headphones" class="w-full h-32 md:h-48 object-cover">
+                            </div>
+                            <h3 class="font-semibold text-gray-800">HEADPHONES</h3>
+                        </a>
+                        <!-- Category Item -->
+                        <a href="#" class="flex-shrink-0 w-32 md:w-48 text-center group">
+                            <div class="rounded-lg overflow-hidden mb-2 shadow-lg transform group-hover:scale-105 transition-transform">
+                                <img src="https://placehold.co/300x300/F3F4F6/333333?text=Cameras" alt="Cameras" class="w-full h-32 md:h-48 object-cover">
+                            </div>
+                            <h3 class="font-semibold text-gray-800">CAMERAS</h3>
+                        </a>
+                        <!-- Category Item -->
+                        <a href="#" class="flex-shrink-0 w-32 md:w-48 text-center group">
+                            <div class="rounded-lg overflow-hidden mb-2 shadow-lg transform group-hover:scale-105 transition-transform">
+                                <img src="https://placehold.co/300x300/F3F4F6/333333?text=Gaming" alt="Gaming" class="w-full h-32 md:h-48 object-cover">
+                            </div>
+                            <h3 class="font-semibold text-gray-800">GAMING</h3>
+                        </a>
+                        <!-- Category Item -->
+                        <a href="#" class="flex-shrink-0 w-32 md:w-48 text-center group">
+                            <div class="rounded-lg overflow-hidden mb-2 shadow-lg transform group-hover:scale-105 transition-transform">
+                                <img src="https://placehold.co/300x300/F3F4F6/333333?text=Tablets" alt="Tablets" class="w-full h-32 md:h-48 object-cover">
+                            </div>
+                            <h3 class="font-semibold text-gray-800">TABLETS</h3>
+                        </a>
+                    </div>
+                    <!-- Prev Button -->
+                    <button id="category-prev" class="absolute top-1/2 -left-4 -translate-y-1/2 bg-white rounded-full p-2 shadow-md text-gray-700 hover:bg-gray-100 hidden md:flex" aria-label="Previous categories">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
+                    </button>
+                    <!-- Next Button -->
+                    <button id="category-next" class="absolute top-1/2 -right-4 -translate-y-1/2 bg-white rounded-full p-2 shadow-md text-gray-700 hover:bg-gray-100 hidden md:flex" aria-label="Next categories">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- 7. Banner Section (from video 0:19) -->
+        <section class="py-12 md:py-16 bg-gray-900 text-white">
+            <div class="container mx-auto px-4 text-center">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">Immerse Yourself</h2>
+                <p class="text-lg text-gray-300 mb-8">Discover the crystal-clear sound of our new premium audio line.</p>
+                <a href="#" class="bg-indigo-600 hover:bg-indigo-700 text-white py-3 px-6 rounded-md text-lg font-medium transition-colors">
+                    Buy Now
+                </a>
+            </div>
+        </section>
+
+        <!-- 8. Features/Services Section (from video 0:22) -->
+        <section class="py-12 md:py-16 bg-white">
+            <div class="container mx-auto px-4">
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+                    <div class="flex flex-col items-center">
+                        <svg class="w-12 h-12 text-indigo-600 mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 17l-5-5 5-5m6 10l5-5-5-5"></path></svg> <!-- Placeholder icon -->
+                        <h3 class="text-lg font-semibold mb-2">Fast Delivery</h3>
+                        <p class="text-gray-600">Shipped to your door, fast.</p>
+                    </div>
+                    <div class="flex flex-col items-center">
+                        <svg class="w-12 h-12 text-indigo-600 mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H7a3 3 0 00-3 3v8a3 3 0 003 3z"></path></svg>
+                        <h3 class="text-lg font-semibold mb-2">Secure Payment</h3>
+                        <p class="text-gray-600">We accept all payment methods.</p>
+                    </div>
+                    <div class="flex flex-col items-center">
+                        <svg class="w-12 h-12 text-indigo-600 mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
+                        <h3 class="text-lg font-semibold mb-2">Warranty Included</h3>
+                        <p class="text-gray-600">1-year warranty on all products.</p>
+                    </div>
+                    <div class="flex flex-col items-center">
+                        <svg class="w-12 h-12 text-indigo-600 mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18.364 5.636l-3.536 3.536m0 5.656l3.536 3.536M9 12l.01 0M15 12l.01 0M3.636 5.636l3.536 3.536m0 5.656l-3.536 3.536M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                        <h3 class="text-lg font-semibold mb-2">24/7 Support</h3>
+                        <p class="text-gray-600">Get assistance anytime.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 9. Product Grid (from video 0:25) -->
+        <section class="py-12 md:py-16 bg-gray-50">
+            <div class="container mx-auto px-4">
+                <h2 class="text-2xl md:text-3xl font-bold text-center mb-8">Best Sellers</h2>
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
+                    
+                    <!-- Product Card 1 -->
+                    <div class="bg-white rounded-lg shadow-md overflow-hidden group">
+                        <div class="relative">
+                            <img src="https://placehold.co/400x400/FFFFFF/333333?text=Laptop+Pro" alt="Laptop Pro" class="w-full h-48 md:h-64 object-cover">
+                            <span class="absolute top-2 left-2 bg-red-500 text-white text-xs font-bold px-2 py-1 rounded">SALE</span>
+                            <div class="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-40 transition-all duration-300 flex items-center justify-center">
+                                <button class="open-modal bg-indigo-600 text-white py-2 px-4 rounded-md opacity-0 group-hover:opacity-100 transform translate-y-4 group-hover:translate-y-0 transition-all"
+                                    data-name="Laptop Pro 14&quot;"
+                                    data-price="89999"
+                                    data-old-price="99999"
+                                    data-image="https://placehold.co/400x400/FFFFFF/333333?text=Laptop+Pro"
+                                    data-options="true">
+                                    Choose Options
+                                </button>
+                            </div>
+                        </div>
+                        <div class="p-4">
+                            <h3 class="font-semibold text-gray-800 truncate">Laptop Pro 14"</h3>
+                            <div class="flex items-center gap-2 mt-1">
+                                <span class="font-bold text-indigo-600 text-lg">₹89,999</span>
+                                <span class="text-gray-500 line-through text-sm">₹99,999</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Product Card 2 -->
+                    <div class="bg-white rounded-lg shadow-md overflow-hidden group">
+                        <div class="relative">
+                            <img src="https://placehold.co/400x400/FFFFFF/333333?text=Smartphone+X" alt="Smartphone X" class="w-full h-48 md:h-64 object-cover">
+                            <span class="absolute top-2 left-2 bg-green-500 text-white text-xs font-bold px-2 py-1 rounded">NEW</span>
+                            <div class="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-40 transition-all duration-300 flex items-center justify-center">
+                                <button class="open-modal bg-indigo-600 text-white py-2 px-4 rounded-md opacity-0 group-hover:opacity-100 transform translate-y-4 group-hover:translate-y-0 transition-all"
+                                    data-name="Smartphone X"
+                                    data-price="64999"
+                                    data-old-price="74999"
+                                    data-image="https://placehold.co/400x400/FFFFFF/333333?text=Smartphone+X"
+                                    data-options="true">
+                                    Choose Options
+                                </button>
+                            </div>
+                        </div>
+                        <div class="p-4">
+                            <h3 class="font-semibold text-gray-800 truncate">Smartphone X</h3>
+                            <div class="flex items-center gap-2 mt-1">
+                                <span class="font-bold text-indigo-600 text-lg">₹64,999</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Product Card 3 -->
+                    <div class="bg-white rounded-lg shadow-md overflow-hidden group">
+                        <div class="relative">
+                            <img src="https://placehold.co/400x400/FFFFFF/333333?text=Wireless+Earbuds" alt="Wireless Earbuds" class="w-full h-48 md:h-64 object-cover">
+                            <div class="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-40 transition-all duration-300 flex items-center justify-center">
+                                <button class="add-to-cart-btn bg-indigo-600 text-white py-2 px-4 rounded-md opacity-0 group-hover:opacity-100 transform translate-y-4 group-hover:translate-y-0 transition-all"
+                                    data-name="Wireless Earbuds"
+                                    data-price="7999"
+                                    data-image="https://placehold.co/400x400/FFFFFF/333333?text=Wireless+Earbuds"
+                                    data-options="false">
+                                    Add to Cart
+                                </button>
+                            </div>
+                        </div>
+                        <div class="p-4">
+                            <h3 class="font-semibold text-gray-800 truncate">Wireless Earbuds</h3>
+                            <div class="flex items-center gap-2 mt-1">
+                                <span class="font-bold text-indigo-600 text-lg">₹7,999</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Product Card 4 -->
+                    <div class="bg-white rounded-lg shadow-md overflow-hidden group">
+                        <div class="relative">
+                            <img src="https://placehold.co/400x400/FFFFFF/333333?text=Gaming+Mouse" alt="Gaming Mouse" class="w-full h-48 md:h-64 object-cover">
+                            <span class="absolute top-2 left-2 bg-red-500 text-white text-xs font-bold px-2 py-1 rounded">SALE</span>
+                            <div class="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-40 transition-all duration-300 flex items-center justify-center">
+                                <button class="add-to-cart-btn bg-indigo-600 text-white py-2 px-4 rounded-md opacity-0 group-hover:opacity-100 transform translate-y-4 group-hover:translate-y-0 transition-all"
+                                    data-name="Pro Gaming Mouse"
+                                    data-price="2999"
+                                    data-image="https://placehold.co/400x400/FFFFFF/333333?text=Gaming+Mouse"
+                                    data-options="false">
+                                    Add to Cart
+                                </button>
+                            </div>
+                        </div>
+                        <div class="p-4">
+                            <h3 class="font-semibold text-gray-800 truncate">Pro Gaming Mouse</h3>
+                            <div class="flex items-center gap-2 mt-1">
+                                <span class="font-bold text-indigo-600 text-lg">₹2,999</span>
+                                <span class="text-gray-500 line-through text-sm">₹4,999</span>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="text-center mt-12">
+                    <a href="#" class="bg-gray-800 hover:bg-black text-white py-3 px-8 rounded-md text-base font-medium transition-colors">
+                        View All
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- 10. Mid-Page Banner (from video 0:39) -->
+        <section class="py-12 md:py-20 bg-white">
+            <div class="container mx-auto px-4">
+                <div class="flex flex-col md:flex-row items-center bg-gray-100 rounded-lg overflow-hidden shadow-lg">
+                    <div class="w-full md:w-1/2">
+                        <img src="https://placehold.co/800x600/333333/FFFFFF?text=Upgrade+Your+Setup" alt="Upgrade Your Setup" class="w-full h-64 md:h-full object-cover">
+                    </div>
+                    <div class="w-full md:w-1/2 p-8 md:p-12 text-center md:text-left">
+                        <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Upgrade Your Setup</h2>
+                        <p class="text-lg text-gray-700 mb-8">From mechanical keyboards to high-DPI mice, find peripherals that match your price from ₹750 to ₹6999.</p>
+                        <a href="#" class="bg-gray-800 hover:bg-black text-white py-3 px-6 rounded-md text-lg font-medium transition-colors">
+                            Shop Now
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- 11. Compare Banner (from video 0:41) -->
+        <section class="py-12 md:py-16 bg-gray-50">
+            <div class="container mx-auto px-4 text-center">
+                <h2 class="text-2xl md:text-3xl font-bold text-center mb-8">Compare Our Latest Models</h2>
+                <div class="relative w-full max-w-4xl mx-auto h-64 md:h-96 rounded-lg overflow-hidden shadow-2xl">
+                    <div class="absolute left-0 top-0 w-1/2 h-full">
+                        <img src="https://placehold.co/600x600/111827/FFFFFF?text=Model+A" alt="Model A" class="w-full h-full object-cover">
+                        <div class="absolute bottom-4 left-4 bg-black bg-opacity-50 text-white p-2 rounded">Model A</div>
+                    </div>
+                    <div class="absolute right-0 top-0 w-1/2 h-full">
+                        <img src="https://placehold.co/600x600/9CA3AF/111827?text=Model+B" alt="Model B" class="w-full h-full object-cover">
+                        <div class="absolute bottom-4 right-4 bg-black bg-opacity-50 text-white p-2 rounded">Model B</div>
+                    </div>
+                    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-1 h-full bg-white"></div>
+                    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-white rounded-full p-2 text-gray-900 font-bold text-sm">VS</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 12. Kid's Collection / Final Banner (from video 0:43) -->
+        <section class="py-12 md:py-20 bg-indigo-700 text-white">
+            <div class="container mx-auto px-4 flex flex-col md:flex-row items-center justify-between">
+                <div class="md:w-1/2 text-center md:text-left mb-8 md:mb-0">
+                    <h2 class="text-3xl md:text-4xl font-bold mb-4">Enter the Gaming Zone</h2>
+                    <p class="text-lg text-indigo-100 mb-8">Consoles, accessories, and the latest titles.</p>
+                    <a href="#" class="bg-white hover:bg-gray-100 text-indigo-700 py-3 px-6 rounded-md text-lg font-medium transition-colors">
+                        Buy Now
+                    </a>
+                </div>
+                <div class="md:w-1/2">
+                    <img src="https://placehold.co/600x400/FFFFFF/111827?text=Gaming+Console" alt="Gaming Zone" class="rounded-lg shadow-lg w-full">
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- 13. Footer (from video 0:44) -->
+    <footer class="bg-black text-gray-300 pt-16 pb-8">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-12 mb-12">
+                <!-- Column 1: Logo & About -->
+                <div>
+                    <a href="#" class="text-3xl font-bold tracking-wider text-white mb-4 inline-block">
+                        TechHub
+                    </a>
+                    <p class="mb-4">Next-Gen Tech, Today.</p>
+                    <p class="text-gray-400">Connecting the world through quality. Trusted by professionals and hobbyists on a journey of innovation and satisfaction.</p>
+                    <div class="flex items-center gap-4 mt-6">
+                        <a href="#" class="hover:text-indigo-400" aria-label="Facebook">
+                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M14 13.5H16.5L17.5 9.5H14V7.5C14 6.47 14 5.5 16 5.5H17.5V2.14C17.174 2.097 15.943 2 14.643 2C11.928 2 10 3.657 10 6.7V9.5H7V13.5H10V22H14V13.5Z"></path></svg>
+                        </a>
+                        <a href="#" class="hover:text-indigo-400" aria-label="Pinterest">
+                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2C6.477 2 2 6.477 2 12C2 16.62 5.03 20.443 9.094 21.652V14.86H6.55V12H9.094V9.668C9.094 7.16 10.655 5.69 12.9 5.69C13.98 5.69 15.106 5.875 15.106 5.875V8.163H13.88C12.632 8.163 12.33 8.98 12.33 9.92V12H15L14.47 14.86H12.33V21.75C16.92 21.05 20.255 16.92 20.255 12C20.255 6.477 15.778 2 12 2Z"></path></svg>
+                        </a>
+                        <a href="#" class="hover:text-indigo-400" aria-label="Instagram">
+                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.07 1.646.07 4.85s-.012 3.584-.07 4.85c-.148 3.227-1.669 4.771-4.919 4.919-1.266.058-1.646.07-4.85.07s-3.584-.012-4.85-.07c-3.252-.148-4.771-1.691-4.919-4.919-.058-1.265-.07-1.646-.07-4.85s.012-3.584.07-4.85c.148-3.227 1.669 4.771 4.919-4.919C8.416 2.175 8.796 2.163 12 2.163m0-2.163C8.74 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.74 0 12s.014 3.667.072 4.947c.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.74 24 12 24s3.667-.014 4.947-.072c4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.687.073-4.947s-.014-3.667-.072-4.947C21.727 2.69 19.302.273 14.947.073 13.667.014 13.26 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.88 1.44 1.44 0 0 0 0-2.88z"></path></svg>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Column 2: Information -->
+                <div>
+                    <h4 class="text-xl font-semibold text-white mb-4">Information</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="hover:text-indigo-400">Privacy Policy</a></li>
+                        <li><a href="#" class="hover:text-indigo-400">Refund Policy</a></li>
+                        <li><a href="#" class="hover:text-indigo-400">Terms of Service</a></li>
+                        <li><a href="#" class="hover:text-indigo-400">Shipping Policy</a></li>
+                        <li><a href="#" class="hover:text-indigo-400">FAQ</a></li>
+                        <li><a href="#" class="hover:text-indigo-400">About Us</a></li>
+                    </ul>
+                </div>
+
+                <!-- Column 3: Contact -->
+                <div>
+                    <h4 class="text-xl font-semibold text-white mb-4">Contact</h4>
+                    <ul class="space-y-3">
+                        <li class="flex items-start gap-3">
+                            <svg class="w-5 h-5 text-indigo-400 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+                            <span>Shop No 04, Indra Market, Narayan Bhavan Station Road, Bhayandar West, Thane, Maharashtra, 401101</span>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <svg class="w-5 h-5 text-indigo-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                            <span>Mon - Sun: 12:00 pm - 8:00 pm</span>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <svg class="w-5 h-5 text-indigo-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path></svg>
+                            <span>+91-83782448209</span>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <svg class="w-5 h-5 text-indigo-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+                            <span>Email: care@techhub.in</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-gray-700 pt-8 text-center text-gray-400 text-sm">
+                <p>&copy; 2025, TechHub - All Rights Reserved</p>
+            </div>
+        </div>
+    </footer>
+
+
+    <!-- 10. Product "Quick View" Modal (from video 0:29) -->
+    <div id="product-modal" class="fixed inset-0 bg-black bg-opacity-75 z-50 flex items-center justify-center p-4 hidden">
+        <div id="modal-content" class="bg-white rounded-lg shadow-2xl overflow-hidden w-full max-w-4xl max-h-[90vh] flex flex-col md:flex-row relative">
+            <!-- Close Button -->
+            <button id="close-modal" class="absolute top-4 right-4 text-gray-500 hover:text-gray-900 z-10" aria-label="Close modal">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+            </button>
+
+            <!-- Product Image -->
+            <div class="w-full md:w-1/2 p-4">
+                <img id="modal-product-image" src="https://placehold.co/600x600/F3F4F6/333333?text=Product" alt="Product Image" class="w-full h-full object-contain rounded-md">
+            </div>
+
+            <!-- Product Details -->
+            <div class="w-full md:w-1/2 p-6 overflow-y-auto">
+                <h2 id="modal-product-title" class="text-2xl font-bold text-gray-900 mb-2">Smartphone X</h2>
+                <div class="flex items-center gap-3 mb-4">
+                    <span id="modal-product-price" class="font-bold text-indigo-600 text-3xl">₹64,999</span>
+                    <span id="modal-product-old-price" class="text-gray-500 line-through text-lg">₹74,999</span>
+                </div>
+                <p class="text-sm text-gray-500 mb-4">Tax included. Shipping calculated at checkout.</p>
+                
+                <div class="mb-4">
+                    <span class="inline-flex items-center gap-2 text-sm font-medium text-green-700">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                        In stock (400)
+                    </span>
+                </div>
+
+                <!-- Options: Color -->
+                <div class="mb-4">
+                    <label id="modal-color-label" class="block text-sm font-medium text-gray-700 mb-2">Color: Midnight Black</label>
+                    <div id="modal-color-options" class="flex gap-2">
+                        <button class="w-8 h-8 rounded-full bg-black border-2 border-indigo-600" aria-label="Midnight Black"></button>
+                        <button class="w-8 h-8 rounded-full bg-gray-200 border-2 border-transparent hover:border-gray-400" aria-label="Starlight White"></button>
+                        <button class="w-8 h-8 rounded-full bg-blue-800 border-2 border-transparent hover:border-gray-400" aria-label="Deep Blue"></button>
+                    </div>
+                </div>
+
+                <!-- Options: Storage (replaces "Size") -->
+                <div class="mb-6">
+                    <label class="block text-sm font-medium text-gray-700 mb-2">Storage</label>
+                    <div id="modal-storage-options" class="flex flex-wrap gap-2">
+                        <button class="py-1 px-3 rounded-md border border-gray-300 hover:border-gray-900">128 GB</button>
+                        <button class="py-1 px-3 rounded-md border border-indigo-600 bg-indigo-50 text-indigo-700 font-medium">256 GB</button>
+                        <button class="py-1 px-3 rounded-md border border-gray-300 hover:border-gray-900">512 GB</button>
+                        <button class="py-1 px-3 rounded-md border border-gray-300 text-gray-400 cursor-not-allowed" disabled>1 TB</button>
+                    </div>
+                </div>
+
+                <!-- Quantity -->
+                <div class="mb-6">
+                    <label class="block text-sm font-medium text-gray-700 mb-2">Quantity</label>
+                    <div class="flex items-center border border-gray-300 rounded-md w-max">
+                        <button id="quantity-minus" class="px-3 py-2 text-gray-600 hover:text-black" aria-label="Decrease quantity">-</button>
+                        <input id="quantity-input" type="text" value="1" class="w-12 text-center border-l border-r border-gray-300" readonly>
+                        <button id="quantity-plus" class="px-3 py-2 text-gray-600 hover:text-black" aria-label="Increase quantity">+</button>
+                    </div>
+                </div>
+
+                <!-- Action Buttons -->
+                <div class="space-y-3">
+                    <button class="add-to-cart-btn w-full bg-indigo-600 hover:bg-indigo-700 text-white py-3 px-6 rounded-md text-base font-medium transition-colors">
+                        Add to Cart
+                    </button>
+                    <button id="buy-now-btn" class="w-full bg-gray-800 hover:bg-black text-white py-3 px-6 rounded-md text-base font-medium transition-colors">
+                        Buy it Now
+                    </button>
+                </div>
+
+                <!-- Social Proof (from video 0:31) -->
+                <div class="mt-6 space-y-3">
+                    <div class="flex items-center gap-2 text-sm text-gray-600">
+                        <svg class="w-5 h-5 text-red-500" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M3.279 3.223A.75.75 0 014.15 3h11.7a.75.75 0 01.87.223l.004.004 1.045 1.568a.75.75 0 01-.11 1.002l-1.045 1.568a.75.75 0 01-.866.22l-.004-.001H4.15a.75.75 0 01-.87-.223l-.004-.004L2.23 5.797a.75.75 0 01.11-1.002l1.045-1.568-.006-.004zM12.9 9.328a.75.75 0 00-1.06 0l-2.5 2.5a.75.75 0 000 1.06l2.5 2.5a.75.75 0 101.06-1.06L10.81 12.5l2.09-2.09a.75.75 0 000-1.082zM8.16 9.58a.75.75 0 010 1.06l-2.5 2.5a.75.75 0 01-1.06-1.06L6.19 10.5l-2.09-2.09a.75.75 0 011.06-1.06l2.5 2.5z" clip-rule="evenodd"></path></svg>
+                        <span><strong>3</strong> sold recently</span>
+                    </div>
+                    <div class="flex items-center gap-2 text-sm text-gray-600">
+                        <svg class="w-5 h-5 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                        <span>Fast Delivery</span>
+                    </div>
+                    <div class="flex items-center gap-2 text-sm text-gray-600">
+                        <svg class="w-5 h-5 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path></svg>
+                        <span><strong>21</strong> people are viewing this right now</span>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- Cart Drawer -->
+    <div id="cart-overlay" class="fixed inset-0 bg-black bg-opacity-50 z-50 hidden transition-opacity duration-300"></div>
+    <div id="cart-drawer" class="fixed top-0 right-0 w-full max-w-md h-full bg-white z-50 shadow-lg transform translate-x-full transition-transform duration-300 ease-in-out flex flex-col">
+        <!-- Cart Header -->
+        <div class="flex justify-between items-center p-4 border-b">
+            <h2 class="text-xl font-bold text-gray-900">Your Cart</h2>
+            <button id="cart-close-btn" class="text-gray-500 hover:text-gray-900" aria-label="Close cart">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+            </button>
+        </div>
+
+        <!-- Cart Body -->
+        <div id="cart-items-container" class="flex-grow p-4 overflow-y-auto">
+            <!-- Cart items will be injected here -->
+            <p id="cart-empty-msg" class="text-gray-500 text-center">Your cart is empty.</p>
+        </div>
+
+        <!-- Cart Footer -->
+        <div class="p-4 border-t bg-gray-50">
+            <div class="flex justify-between items-center mb-4">
+                <span class="text-lg font-medium text-gray-700">Subtotal</span>
+                <span id="cart-subtotal" class="text-xl font-bold text-gray-900">₹0</span>
+            </div>
+            <button class="w-full bg-indigo-600 hover:bg-indigo-700 text-white py-3 px-6 rounded-md text-base font-medium transition-colors">
+                Proceed to Checkout
+            </button>
+        </div>
+    </div>
+
+
+    <!-- Toast Notification -->
+    <div id="toast-notification" class="fixed bottom-4 right-4 bg-gray-900 text-white p-3 px-5 rounded-lg shadow-lg hidden z-50 transition-opacity duration-300">
+        Item added to cart!
+    </div>
+
+    <!-- JavaScript for interactivity -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+
+            // --- Global State ---
+            let cart = []; // { id, name, price, image, quantity, options: {} }
+
+            // --- Element Selectors ---
+            const cartBtn = document.getElementById('cart-btn');
+            const cartCountElement = document.getElementById('cart-count');
+            const toast = document.getElementById('toast-notification');
+            const searchBtn = document.getElementById('search-btn');
+            const searchOverlay = document.getElementById('search-overlay');
+            const closeSearchBtn = document.getElementById('close-search-btn');
+            const searchInput = document.getElementById('search-input');
+            const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+            const closeMobileMenuBtn = document.getElementById('close-mobile-menu');
+            const mobileMenu = document.getElementById('mobile-menu-items');
+            const categoryContainer = document.getElementById('category-container');
+            const categoryPrevBtn = document.getElementById('category-prev');
+            const categoryNextBtn = document.getElementById('category-next');
+            const modal = document.getElementById('product-modal');
+            const closeModalBtn = document.getElementById('close-modal');
+            const openModalBtns = document.querySelectorAll('.open-modal');
+            const cartOverlay = document.getElementById('cart-overlay');
+            const cartDrawer = document.getElementById('cart-drawer');
+            const cartCloseBtn = document.getElementById('cart-close-btn');
+            const cartItemsContainer = document.getElementById('cart-items-container');
+            const cartEmptyMsg = document.getElementById('cart-empty-msg');
+            const cartSubtotal = document.getElementById('cart-subtotal');
+            const addToCartButtons = document.querySelectorAll('.add-to-cart-btn');
+
+            // --- Toast Notification ---
+            function showToast(message) {
+                if (!toast) return;
+                toast.textContent = message;
+                toast.classList.remove('hidden');
+                setTimeout(() => {
+                    toast.classList.add('hidden');
+                }, 3000);
+            }
+
+            // --- Cart Drawer ---
+            function openCart() {
+                if (cartDrawer && cartOverlay) {
+                    cartOverlay.classList.remove('hidden');
+                    cartDrawer.classList.remove('translate-x-full');
+                }
+            }
+
+            function closeCart() {
+                if (cartDrawer && cartOverlay) {
+                    cartOverlay.classList.add('hidden');
+                    cartDrawer.classList.add('translate-x-full');
+                }
+            }
+            
+            if (cartBtn) cartBtn.addEventListener('click', openCart);
+            if (cartCloseBtn) cartCloseBtn.addEventListener('click', closeCart);
+            if (cartOverlay) cartOverlay.addEventListener('click', closeCart);
+
+            // --- Cart Logic ---
+            function updateCartDisplay() {
+                if (!cartItemsContainer || !cartCountElement || !cartEmptyMsg || !cartSubtotal) return;
+
+                // Clear current items
+                cartItemsContainer.innerHTML = '';
+                
+                if (cart.length === 0) {
+                    cartItemsContainer.appendChild(cartEmptyMsg);
+                    cartEmptyMsg.classList.remove('hidden');
+                } else {
+                    cartEmptyMsg.classList.add('hidden');
+                    cart.forEach(item => {
+                        const itemEl = document.createElement('div');
+                        itemEl.className = 'flex gap-4 py-4 border-b';
+                        itemEl.innerHTML = `
+                            <img src="${item.image}" alt="${item.name}" class="w-16 h-16 object-cover rounded-md">
+                            <div class="flex-grow">
+                                <h4 class="font-semibold text-gray-800">${item.name}</h4>
+                                ${item.options.color ? `<p class="text-sm text-gray-500">${item.options.color} / ${item.options.storage}</p>` : ''}
+                                <p class="text-sm text-gray-500">Qty: ${item.quantity}</p>
+                            </div>
+                            <div class="text-right">
+                                <p class="font-semibold text-gray-800">₹${(item.price * item.quantity).toLocaleString('en-IN')}</p>
+                            </div>
+                        `;
+                        cartItemsContainer.appendChild(itemEl);
+                    });
+                }
+
+                // Update subtotal
+                const subtotal = cart.reduce((total, item) => total + (item.price * item.quantity), 0);
+                cartSubtotal.textContent = `₹${subtotal.toLocaleString('en-IN')}`;
+
+                // Update header count
+                const totalItems = cart.reduce((total, item) => total + item.quantity, 0);
+                cartCountElement.textContent = totalItems;
+            }
+
+            function addItemToCart(itemData) {
+                const { name, price, image, quantity = 1, options = {} } = itemData;
+                
+                // Create a unique ID based on product and options
+                const itemId = `${name}-${options.color || ''}-${options.storage || ''}`;
+                
+                const existingItem = cart.find(item => item.id === itemId);
+
+                if (existingItem) {
+                    existingItem.quantity += quantity;
+                } else {
+                    cart.push({
+                        id: itemId,
+                        name,
+                        price: parseFloat(price),
+                        image,
+                        quantity,
+                        options
+                    });
+                }
+                
+                updateCartDisplay();
+                showToast(`${name} added to cart!`);
+            }
+
+            // Listeners for simple "Add to Cart" (from grid)
+            addToCartButtons.forEach(button => {
+                if (button.closest('#product-modal')) return; // Ignore modal button
+
+                button.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    const dataset = e.currentTarget.dataset;
+                    if (dataset.options === 'false') {
+                         addItemToCart({
+                            name: dataset.name,
+                            price: dataset.price,
+                            image: dataset.image,
+                            quantity: 1
+                        });
+                    }
+                });
+            });
+
+            // --- Search Overlay ---
+            if (searchBtn && searchOverlay && closeSearchBtn && searchInput) {
+                searchBtn.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    searchOverlay.classList.remove('hidden');
+                    searchOverlay.classList.add('flex');
+                    searchInput.focus();
+                });
+
+                closeSearchBtn.addEventListener('click', () => {
+                    searchOverlay.classList.add('hidden');
+                    searchOverlay.classList.remove('flex');
+                });
+            }
+
+            // --- Mobile Menu Toggle ---
+            // ** FIX: Removed duplicate const declarations **
+            if (mobileMenuBtn && mobileMenu && closeMobileMenuBtn) {
+                mobileMenuBtn.addEventListener('click', () => {
+                    mobileMenu.classList.remove('-translate-x-full');
+                });
+
+                closeMobileMenuBtn.addEventListener('click', () => {
+                    mobileMenu.classList.add('-translate-x-full');
+                });
+            }
+            
+            // --- Mobile Dropdowns ---
+            const mobileDropdownToggles = document.querySelectorAll('.mobile-dropdown-toggle');
+            mobileDropdownToggles.forEach(toggle => {
+                toggle.addEventListener('click', () => {
+                    const content = toggle.nextElementSibling;
+                    const icon = toggle.querySelector('svg');
+                    content.classList.toggle('hidden');
+                    icon.classList.toggle('rotate-180');
+                });
+            });
+
+            // --- Hero Slider ---
+            const slides = document.querySelectorAll('.hero-slide');
+            let currentSlide = 0;
+            if (slides.length > 0) {
+                setInterval(() => {
+                    slides[currentSlide].classList.add('opacity-0', 'hidden');
+                    currentSlide = (currentSlide + 1) % slides.length;
+                    slides[currentSlide].classList.remove('opacity-0', 'hidden');
+                }, 5000); // Change slide every 5 seconds
+            }
+
+            // --- Category Scroller Buttons ---
+            if (categoryContainer && categoryPrevBtn && categoryNextBtn) {
+                const scrollAmount = 300;
+
+                const updateButtons = () => {
+                    if (!categoryContainer) return;
+                    const maxScroll = categoryContainer.scrollWidth - categoryContainer.clientWidth;
+                    const canScrollLeft = categoryContainer.scrollLeft > 0;
+                    const canScrollRight = categoryContainer.scrollLeft < maxScroll - 1;
+
+                    categoryPrevBtn.classList.toggle('hidden', !canScrollLeft);
+                    categoryNextBtn.classList.toggle('hidden', !canScrollRight);
+                };
+
+                categoryNextBtn.addEventListener('click', () => {
+                    categoryContainer.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+                });
+
+                categoryPrevBtn.addEventListener('click', () => {
+                    categoryContainer.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
+                });
+
+                categoryContainer.addEventListener('scroll', updateButtons);
+                window.addEventListener('resize', updateButtons); // Handle resize
+                
+                // Use a small timeout to ensure layout is complete before checking
+                setTimeout(updateButtons, 100);
+            }
+
+
+            // --- Product Modal ---
+            const modalProductImage = document.getElementById('modal-product-image');
+            const modalProductTitle = document.getElementById('modal-product-title');
+            const modalProductPrice = document.getElementById('modal-product-price');
+            const modalProductOldPrice = document.getElementById('modal-product-old-price');
+            const quantityInput = document.getElementById('quantity-input');
+            const quantityPlus = document.getElementById('quantity-plus');
+            const quantityMinus = document.getElementById('quantity-minus');
+            const buyNowBtn = document.getElementById('buy-now-btn');
+            const colorOptionsContainer = document.getElementById('modal-color-options');
+            const storageOptionsContainer = document.getElementById('modal-storage-options');
+            const colorLabel = document.getElementById('modal-color-label');
+            const modalAddToCartBtn = modal.querySelector('.add-to-cart-btn');
+
+            let currentModalProduct = {};
+
+            const closeModal = () => {
+                if(modal) modal.classList.add('hidden');
+            };
+            
+            if (modal && closeModalBtn && openModalBtns) {
+                openModalBtns.forEach(btn => {
+                    btn.addEventListener('click', (e) => {
+                        e.stopPropagation(); 
+                        
+                        // 1. Get data from the clicked button
+                        const dataset = e.currentTarget.dataset;
+                        currentModalProduct = {
+                            name: dataset.name,
+                            price: dataset.price,
+                            oldPrice: dataset.oldPrice,
+                            image: dataset.image
+                        };
+
+                        // 2. Populate Modal Content
+                        if(modalProductImage) modalProductImage.src = currentModalProduct.image;
+                        if(modalProductTitle) modalProductTitle.textContent = currentModalProduct.name;
+                        if(modalProductPrice) modalProductPrice.textContent = `₹${parseFloat(currentModalProduct.price).toLocaleString('en-IN')}`;
+                        if (modalProductOldPrice) {
+                            if (currentModalProduct.oldPrice) {
+                                modalProductOldPrice.textContent = `₹${parseFloat(currentModalProduct.oldPrice).toLocaleString('en-IN')}`;
+                                modalProductOldPrice.classList.remove('hidden');
+                            } else {
+                                modalProductOldPrice.classList.add('hidden');
+                            }
+                        }
+
+                        // Reset options
+                        if(quantityInput) quantityInput.value = 1;
+                        if (colorOptionsContainer) {
+                            const firstColor = colorOptionsContainer.querySelector('button');
+                            if(firstColor) firstColor.click();
+                        }
+                        if (storageOptionsContainer) {
+                            const firstStorage = storageOptionsContainer.querySelector('button:not([disabled])');
+                            if(firstStorage) firstStorage.click();
+                        }
+
+                        // 3. Show Modal
+                        modal.classList.remove('hidden');
+                    });
+                });
+
+                // ** FIX: Corrected modal logic **
+                
+                if(closeModalBtn) closeModalBtn.addEventListener('click', closeModal);
+                
+                modal.addEventListener('click', (e) => {
+                     if (e.target === modal) {
+                        closeModal();
+                    }
+                });
+
+                // Modal: Quantity
+                if (quantityPlus && quantityMinus && quantityInput) {
+                    quantityPlus.addEventListener('click', () => {
+                        let currentVal = parseInt(quantityInput.value);
+                        quantityInput.value = currentVal + 1;
+                    });
+                    
+                    quantityMinus.addEventListener('click', () => {
+                        let currentVal = parseInt(quantityInput.value);
+                        if (currentVal > 1) {
+                            quantityInput.value = currentVal - 1;
+                        }
+                    });
+                }
+
+                // Modal: Color Selection
+                if (colorOptionsContainer && colorLabel) {
+                    colorOptionsContainer.addEventListener('click', (e) => {
+                        const targetButton = e.target.closest('button');
+                        if (targetButton) {
+                            // Remove border from all buttons
+                            colorOptionsContainer.querySelectorAll('button').forEach(btn => {
+                                btn.classList.remove('border-indigo-600');
+                                btn.classList.add('border-transparent');
+                            });
+                            // Add border to clicked button
+                            targetButton.classList.add('border-indigo-600');
+                            targetButton.classList.remove('border-transparent');
+                            // Update label
+                            colorLabel.textContent = `Color: ${targetButton.getAttribute('aria-label')}`;
+                        }
+                    });
+                }
+
+                // Modal: Storage Selection
+                if (storageOptionsContainer) {
+                    storageOptionsContainer.addEventListener('click', (e) => {
+                        const targetButton = e.target.closest('button');
+                        if (targetButton && !targetButton.disabled) {
+                            // Remove selected styles from all buttons
+                            storageOptionsContainer.querySelectorAll('button').forEach(btn => {
+                                btn.classList.remove('border-indigo-600', 'bg-indigo-50', 'text-indigo-700', 'font-medium');
+                                btn.classList.add('border-gray-300', 'hover:border-gray-900');
+                            });
+                            // Add selected styles to clicked button
+                            targetButton.classList.add('border-indigo-600', 'bg-indigo-50', 'text-indigo-700', 'font-medium');
+                            targetButton.classList.remove('border-gray-300', 'hover:border-gray-900');
+                        }
+                    });
+                }
+
+                // Modal: Add to Cart Button
+                if (modalAddToCartBtn) {
+                    modalAddToCartBtn.addEventListener('click', () => {
+                        const selectedColor = colorOptionsContainer.querySelector('.border-indigo-600')?.getAttribute('aria-label') || 'Default';
+                        const selectedStorage = storageOptionsContainer.querySelector('.border-indigo-600')?.textContent || 'Default';
+                        
+                        addItemToCart({
+                            ...currentModalProduct,
+                            quantity: parseInt(quantityInput.value),
+                            options: {
+                                color: selectedColor,
+                                storage: selectedStorage
+                            }
+                        });
+                        closeModal();
+                    });
+                }
+
+                // Modal: Buy it Now
+                if (buyNowBtn) {
+                    buyNowBtn.addEventListener('click', () => {
+                        showToast('Redirecting to checkout...');
+                        closeModal();
+                    });
+                }
+            }
+            
+            // Initial Cart Render
+            updateCartDisplay();
+        });
+    </script>
+
+</body>
+</html>
